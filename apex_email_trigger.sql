@@ -27,7 +27,7 @@ BEGIN
 
     -- Call Python FastAPI email service
     V_RESULT := APEX_WEB_SERVICE.MAKE_REST_REQUEST(
-        p_url         => 'https://<YOUR-SERVER>/v1/emailTrigger',
+        p_url         => 'https://<YOUR-SERVER>/<EMAIL_API_ENDPOINT>',
         p_http_method => 'POST',
         p_body        => V_MAIL
     );
