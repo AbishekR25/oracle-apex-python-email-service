@@ -16,7 +16,7 @@ class EmailData(BaseModel):
     p_body: str
 
 
-@app.post("/v1/emailTrigger")
+@app.post("/api/email")
 async def email_trigger(data: EmailData):
 
     msg = MIMEText(data.p_body, "html")
@@ -34,7 +34,7 @@ async def email_trigger(data: EmailData):
         # SMTP server and port should be configured
         # in the server environment.
         smtp_host = os.getenv("SMTP_HOST")
-        smtp_port = int(os.getenv("SMTP_PORT", "587"))
+       smtp_port = int(os.getenv("SMTP_PORT"))
 
         smtp_username = os.getenv("SMTP_USERNAME")
         smtp_password = os.getenv("SMTP_PASSWORD")
